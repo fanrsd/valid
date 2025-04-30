@@ -7,6 +7,7 @@ export default async function hok(id: number): Promise<Result> {
         success: true,
         game: 'Honor of Kings',
         id,
-        name: data.data
+        name: data.data,
+        server: data.message
       }
   }
