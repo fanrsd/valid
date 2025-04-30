@@ -23,7 +23,7 @@ export async function hitGopay(body: string): Promise<unknown> {
   const response = await fetch('https://gopay.co.id/games/v1/order/prepare/HOK', {
     method: 'GET',
     headers: {
-      'Content-Type': 'application/json; charset=utf-8'
+      'Content-Type': 'application/x-www-form-urlencoded'
     },
     body
   })
