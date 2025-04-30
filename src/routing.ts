@@ -49,6 +49,8 @@ export default async function callAPI(request: Request): Promise<Result> {
         return await router.valo(id)
       case path.includes('/zzz'):
         return await router.zzz(Number(id))
+      case path.includes('/hok'):
+        return await router.hok(Number(id))
       default:
         return {
           success: false,
