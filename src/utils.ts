@@ -19,6 +19,14 @@ export async function hitCoda(body: string): Promise<unknown> {
   return await response.json()
 }
 
+export async function hitGopay(body: string): Promise<unknown> {
+  const response = await fetch('https://gopay.co.id/games/v1/order/prepare/HOK', {
+    method: 'GET',
+    body
+  })
+  return await response.json()
+}
+
 export interface Result {
   success: boolean
   game?: string
