@@ -82,7 +82,7 @@ export async function callAPIGopay(request: Request): Promise<Result> {
       default:
         return {
           success: false,
-          message: 'Bad request'
+          message: 'Bad request' + path
         }
     }
   } catch (error) {
