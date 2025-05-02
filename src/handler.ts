@@ -1,6 +1,6 @@
 import { allowedMethod, timeNow } from './utils'
-import serveResult from './helpers'
-import serveGopayResult from './helpers'
+import  from './helpers'
+import { serveResult, serveGopayResult } from './helpers'
 
 export default async function checkCache(request: Request): Promise<Response> {
   const now = timeNow()
