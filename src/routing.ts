@@ -10,7 +10,7 @@ export async function callAPI(request: Request): Promise<Result> {
   if (!id) {
     return {
       success: false,
-      message: 'Bad request' 
+      message: 'Bad request Coda' 
     }
   }
   try {
