@@ -11,7 +11,7 @@ export async function serveResult(request: Request): Promise<Response> {
       result.name = decodeURIComponent(result.name)
     }
   }
-  if (result.message === 'Bad requestCoda') {
+  if (result.message === 'Bad request') {
     code = 400
   }
   if (result.message === 'Not found') {
