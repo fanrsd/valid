@@ -49,6 +49,34 @@ export default async function callAPI(request: Request): Promise<Result> {
         return await router.valo(id)
       case path.includes('/zzz'):
         return await router.zzz(Number(id))
+      default:
+        return {
+          success: false,
+          message: 'Bad request'
+        }
+    }
+  } catch (error) {
+    return {
+      success: false,
+      message: 'Not found'
+    }
+  }
+}
+
+export default async function callAPIGopay(request: Request): Promise<Result> {
+  const url = getUrl(request)
+  const path = url.pathname
+  const params = url.searchParams
+  const id = params.get('id')
+  const server = params.get('zone') || params.get('server')
+  if (!id) {
+    return {
+      success: false,
+      message: 'Bad request' 
+    }
+  }
+  try {
+    switch (true) {
       case path.includes('/hok'):
         return await router.hok(Number(id))
       default:
@@ -60,8 +88,7 @@ export default async function callAPI(request: Request): Promise<Result> {
   } catch (error) {
     return {
       success: false,
-      message: 'Not found',
-      error: error
+      message: 'Not found'
     }
   }
 }
