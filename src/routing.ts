@@ -72,7 +72,7 @@ export async function callAPIGopay(request: Request): Promise<Result> {
   if (!id) {
     return {
       success: false,
-      message: 'Bad request' 
+      message: 'Input ID' 
     }
   }
   try {
