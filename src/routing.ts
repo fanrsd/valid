@@ -1,7 +1,7 @@
 import { getUrl, Result } from './utils'
 import * as router from './router'
 
-export default async function callAPI(request: Request): Promise<Result> {
+export async function callAPI(request: Request): Promise<Result> {
   const url = getUrl(request)
   const path = url.pathname
   const params = url.searchParams
@@ -63,7 +63,7 @@ export default async function callAPI(request: Request): Promise<Result> {
   }
 }
 
-export default async function callAPIGopay(request: Request): Promise<Result> {
+export async function callAPIGopay(request: Request): Promise<Result> {
   const url = getUrl(request)
   const path = url.pathname
   const params = url.searchParams
