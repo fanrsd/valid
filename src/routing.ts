@@ -52,7 +52,7 @@ export async function callAPI(request: Request): Promise<Result> {
       default:
         return {
           success: false,
-          message: 'Bad request'
+          message: 'Bad request Param Code'
         }
     }
   } catch (error) {
