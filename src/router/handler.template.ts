@@ -1,6 +1,6 @@
 import { hitCoda, hitGopay, Result } from '../utils'
 
-export default async function gameName(id: string): Promise<Result> {
+export async function gameName(id: string): Promise<Result> {
   const body = `` 
   const data = await hitCoda(body)
   return {
@@ -11,7 +11,7 @@ export default async function gameName(id: string): Promise<Result> {
   }
 }
 
-export default async function gameNames(id: string): Promise<Result> {
+export async function gameNames(id: string): Promise<Result> {
   const body = `` 
   const data = await hitGopay(body)
   return {
