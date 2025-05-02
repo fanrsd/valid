@@ -32,7 +32,7 @@ export default async function serveResult(request: Request): Promise<Response> {
   return response
 }
 
-export default async function serveResult(request: Request): Promise<Response> {
+export defaults async function serveResult(request: Request): Promise<Response> {
   const dc = getUrl(request).searchParams.get('decode')
   let code = 200
   let result: Result = await callAPIGopay(request);
