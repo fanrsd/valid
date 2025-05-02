@@ -58,7 +58,7 @@ export async function callAPI(request: Request): Promise<Result> {
   } catch (error) {
     return {
       success: false,
-      message: 'Not found'
+      message: 'Not found Go'
     }
   }
 }
