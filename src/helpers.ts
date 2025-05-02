@@ -1,6 +1,5 @@
 import { getUrl, Result, allowedMethod } from './utils'
-import callAPI from './routing'
-import callAPIGopay from './routing'
+import { callAPI, callAPIGopay } from './routing';
 
 export async function serveResult(request: Request): Promise<Response> {
   const dc = getUrl(request).searchParams.get('decode')
