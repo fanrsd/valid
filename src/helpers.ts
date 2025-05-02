@@ -2,7 +2,7 @@ import { getUrl, Result, allowedMethod } from './utils'
 import callAPI from './routing'
 import callAPIGopay from './routing'
 
-export default async function serveResult(request: Request): Promise<Response> {
+export async function serveResult(request: Request): Promise<Response> {
   const dc = getUrl(request).searchParams.get('decode')
   let code = 200
   let result: Result = await callAPI(request);
@@ -32,7 +32,7 @@ export default async function serveResult(request: Request): Promise<Response> {
   return response
 }
 
-export default async function serveGopayResult(request: Request): Promise<Response> {
+export async function serveGopayResult(request: Request): Promise<Response> {
   const dc = getUrl(request).searchParams.get('decode')
   let code = 200
   let result: Result = await callAPIGopay(request);
