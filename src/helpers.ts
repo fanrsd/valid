@@ -1,5 +1,6 @@
 import { getUrl, Result, allowedMethod } from './utils'
 import callAPI from './routing'
+import callAPIGopay from './routing'
 
 export default async function serveResult(request: Request): Promise<Response> {
   const dc = getUrl(request).searchParams.get('decode')
@@ -26,6 +27,36 @@ export default async function serveResult(request: Request): Promise<Response> {
       'Cache-Control': 'public, max-age=30, s-maxage=43200, proxy-revalidate, immutable',
       'Content-Type': 'application/json; charset=utf-8',
       'X-Powered-By': '@ihsangan/valid'
+    }
+  })
+  return response
+}
+
+export default async function serveResult(request: Request): Promise<Response> {
+  const dc = getUrl(request).searchParams.get('decode')
+  let code = 200
+  let result: Result = await callAPIGopay(request);
+  if (result.data) {
+    result.data = result.data.replace(/\u002B/g, '%20')
+    if (dc === null || dc === 'true' || dc !== 'false') {
+      result.name = decodeURIComponent(result.data)
+    }
+  }
+  if (result.message === 'Bad request') {
+    code = 400
+  }
+  if (result.message === 'Invalid user account') {
+    code = 404
+  }
+  const response = new Response(JSON.stringify(result), {
+    status: code,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Methods': allowedMethod.join(', '),
+      'Access-Control-Expose-Headers': '*',
+      'Cache-Control': 'public, max-age=30, s-maxage=43200, proxy-revalidate, immutable',
+      'Content-Type': 'application/json; charset=utf-8',
+      'X-Powered-By': 'Vocagame'
     }
   })
   return response
