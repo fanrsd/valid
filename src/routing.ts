@@ -88,7 +88,7 @@ export async function callAPIGopay(request: Request): Promise<Result> {
   } catch (error) {
     return {
       success: false,
-      message: 'Not found'
+      message: 'Not found Go'
     }
   }
 }
